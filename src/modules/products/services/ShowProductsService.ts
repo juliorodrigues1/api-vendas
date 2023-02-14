@@ -11,7 +11,7 @@ export class ShowProductsService{
     public async execute({ id }: IRequest): Promise<Product | undefined>{
         const productsRepository = getCustomRepository(ProductsRepository);
 
-        const product =  productsRepository.findOne(id);
+        const product = await productsRepository.findOne(id);
 
         if(!product){
             throw new AppError('Product not found');
