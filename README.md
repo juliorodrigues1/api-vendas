@@ -24,7 +24,7 @@ Isso instalará todas as dependências listadas no arquivo `package.json` do pro
 - Crie um arquivo `typeormconfig.json` na pasta raiz do projeto.
 - Adicione as seguintes informações ao arquivo:
 
-  
+
   {
     "type": "",
     "host": "localhost",
@@ -42,7 +42,7 @@ Isso instalará todas as dependências listadas no arquivo `package.json` do pro
         "migrationsDir": "./src/shared/typeorm/migrations"
     }
 }
-  
+
 
   Substitua `<host>`, `<porta>`, `<usuário>`, `<senha>` e `<nome_do_banco>` pelas informações de conexão do seu banco de dados PostgreSQL.
 
@@ -50,9 +50,9 @@ Isso instalará todas as dependências listadas no arquivo `package.json` do pro
 
 - Execute o seguinte comando para criar as tabelas no banco de dados:
 
-  
-  npm run typeorm migrate:run
-  
+
+  npm run typeorm migration:run
+
 
 ## Executando o projeto
 
