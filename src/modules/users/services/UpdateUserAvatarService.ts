@@ -10,7 +10,6 @@ interface IRequest {
     user_id: string;
     avatarFileName: string;
 }
-
 export class UpdateUserAvatarService {
     public async execute({ user_id, avatarFileName }: IRequest): Promise<User> {
         const usersRepository = getCustomRepository(UsersRepository);

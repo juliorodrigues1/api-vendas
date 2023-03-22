@@ -7,7 +7,7 @@ export class UserAvatarController{
       
         const user = await updateAvatar.execute({
             user_id: req.user.id,
-            avatarFilename: req.file.filename
+            avatarFileName: req.file?.filename as string,
         });
 
         return res.json(user);
