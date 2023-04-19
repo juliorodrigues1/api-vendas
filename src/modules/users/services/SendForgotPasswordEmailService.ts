@@ -24,8 +24,18 @@ export class SendForgotPasswordEmailService{
     // console.log(token);
 
     await EtherealMail.sendMail({
-      to: user.email,
-      body: `[API Vendas] Recuperação de senha - ${token}`,
+      to: {
+        name: user.name,
+        email: user.email,
+      },
+      subject: '[API Vendas] Recuperação de senha',
+      templateData: {
+        template: `Olá {{name}} - {{token}}`,
+        variables: {
+          name: user.name,
+          token,
+        },
+      },
     });
 
 
