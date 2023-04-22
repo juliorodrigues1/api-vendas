@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UpdateUserAvatarService } from "../services/UpdateUserAvatarService";
+import { UpdateUserAvatarService } from "../../../services/UpdateUserAvatarService";
 
 export class UserAvatarController{
     public async update(req: Request, res: Response): Promise<Response>{
