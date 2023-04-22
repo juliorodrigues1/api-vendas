@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { CreateProductService } from "../services/CreateProductsService";
-import { DeleteProductsService } from "../services/DeleteProductsSevice";
-import { ListProductsService } from "../services/ListProductsService";
-import { ShowProductsService } from "../services/ShowProductsService";
-import { UpdateProductsService } from "../services/UpdateProductsService";
-
+import { CreateProductService } from "../../../services/CreateProductsService";
+import { DeleteProductsService } from "../../../services/DeleteProductsSevice";
+import { ListProductsService } from "../../../services/ListProductsService";
+import { ShowProductsService } from "../../../services/ShowProductsService";
+import { UpdateProductsService } from "../../../services/UpdateProductsService";
+import { container } from "tsyringe";
 
 export class ProductsController{
 
@@ -29,7 +29,8 @@ export class ProductsController{
     public async create(req: Request, res: Response): Promise<Response>{
         const { name, price, quantity } = req.body;
 
-        const createProduct = new CreateProductService();
+
+        const createProduct = container.resolve(CreateProductService);
 
         const product = await createProduct.execute({
             name,

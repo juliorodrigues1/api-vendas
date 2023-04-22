@@ -1,7 +1,8 @@
+import { IProducts } from "@modules/products/domain/models/IProducts";
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("products")
-export class Product{
+export class Product implements IProducts{
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
