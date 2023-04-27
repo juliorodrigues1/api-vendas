@@ -9,7 +9,7 @@ import { container } from "tsyringe";
 export class ProductsController{
 
     public async index(req: Request, res: Response): Promise<Response>{
-        const listProducts = new ListProductsService();
+        const listProducts = container.resolve(ListProductsService);
 
         const products = await listProducts.execute();
 
@@ -19,7 +19,7 @@ export class ProductsController{
     public async show(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
-        const showProduct = new ShowProductsService();
+        const showProduct = container.resolve(ShowProductsService);
 
         const product = await showProduct.execute({id});
 
@@ -45,7 +45,7 @@ export class ProductsController{
         const { id } = req.params;
         const { name, price, quantity } = req.body;
 
-        const updateProduct = new UpdateProductsService();
+        const updateProduct = container.resolve(UpdateProductsService);
 
         const product = await updateProduct.execute({
             id,
@@ -60,7 +60,7 @@ export class ProductsController{
     public async delete(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
-        const deleteProduct = new DeleteProductsService();
+        const deleteProduct = container.resolve(DeleteProductsService);
 
         await deleteProduct.execute({ id });
 
