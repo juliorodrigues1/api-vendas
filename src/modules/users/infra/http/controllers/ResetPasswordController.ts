@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { container } from "tsyringe";
 import { ResetPasswordService } from "../../../services/ResetPasswordService";
 
 export class ResetPasswordController {
@@ -7,7 +8,7 @@ export class ResetPasswordController {
         
         const { password, token } = req.body;
 
-        const resetPasswordService = new ResetPasswordService();
+        const resetPasswordService = container.resolve(ResetPasswordService);
 
         await resetPasswordService.execute({
             token,
