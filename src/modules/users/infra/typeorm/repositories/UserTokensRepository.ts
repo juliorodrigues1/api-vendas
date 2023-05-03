@@ -26,6 +26,8 @@ export class UserTokensRopository implements IUserTokensRepository{
             user_id
         });
 
+        await this.ormRepository.save(userToken);
+        
         return userToken;
     }
 }
