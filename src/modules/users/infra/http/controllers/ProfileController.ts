@@ -3,7 +3,7 @@ import { UpdateProfileService } from "@modules/users/services/UpdateProfileServi
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-export class profileController{
+export class ProfileController{
 
 
     public async showProfile(request:Request, response: Response): Promise<Response>{
