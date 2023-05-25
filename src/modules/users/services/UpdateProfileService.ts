@@ -6,7 +6,7 @@ import { IUsers } from "../domain/models/IUsers";
 import { IUsersRepository } from "../domain/repositories/IUsersRepository";
 
 @injectable()
-export class UpdatefileService{
+export class UpdateProfileService{
 
     constructor(
         @inject('UsersRepository')
